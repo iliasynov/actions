@@ -31,7 +31,7 @@ jobs:
       - name: Discord notification
         uses: Ilshidur/action-discord@master
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }} # Récupérer le webhook Discord depuis les secrets
         with:
           args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has build succesfully.'
 
