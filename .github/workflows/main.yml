@@ -28,6 +28,13 @@ jobs:
       - name: Build application
         run: npm run build  # Lancer le script de build (exemple : afficher un message)
 
+      - name: Discord notification
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has build succesfully.'
+
   # Job de déploiement sur Staging
   deploy_staging:
     runs-on: ubuntu-latest
